@@ -1,0 +1,47 @@
+---
+title: "pokemon-statistical-analysis"
+author: "Angelo Freda"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r}
+library(readr)
+```
+
+```{r}
+X29_Pokemon <- read_csv("29. Pokemon.csv")
+```
+
+```{r}
+Legendarios <- subset(X29_Pokemon, Is_Legendary == TRUE)
+
+```
+```{r}
+no_legendarios <- subset(X29_Pokemon, Is_Legendary == FALSE)
+```
+
+```{r}
+print(Legendarios)
+```
+```{r}
+print(no_legendarios)
+```
+
+# ahora comparo los legendarios y los no los no lejendarios.
+```{r}
+mean(Legendarios$Total_Stats)
+```
+```{r}
+mean(no_legendarios$Total_Stats)
+```
+# ahora visualizacion
+```{r}
+install.packages("ggplot2")
+```
+```{r}
+library(ggplot2)
+```
+```{r}
+ggplot(X29_Pokemon, aes(x = Is_Legendary, y = Total_Stats)) + geom_boxplot() + labs(tittle = "Legendarios")
+```
