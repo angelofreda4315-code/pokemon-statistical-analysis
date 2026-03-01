@@ -2,39 +2,108 @@
 title: "pokemon-statistical-analysis"
 author: "Angelo Freda"
 date: "`r Sys.Date()`"
-output: pdf_document
+degree: "Computación I"
+director:
+  - "Jesus Ochoa"
+  - "Oliver Triveño"
+lugar: "Caracas"
+facultad:
+  - "Facultad de Ciencias Económicas y Sociales"
+  - "Escuela de Estadística y Ciencias Actuariales"
+output:
+  pdf_document:
+    keep_tex: true
+    toc: true
+    number_sections: true
+    citation_package: natbib
 ---
 
-```{r}
+```{r librerias, include=FALSE}
+# Configuración global de chunks
+knitr::opts_chunk$set(
+  echo = FALSE,        # Mostrar código
+  warning = FALSE,    # Ocultar advertencias
+  message = FALSE,    # Ocultar mensajes de carga
+  fig.align = "center",
+  out.width = "90%",
+  fig.pos = "H",
+  out.extra = ""
+)
+
+# Cargar librerías necesarias
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(scales)
+library(ggplot2)
 library(readr)
 ```
-
-```{r}
+\subsection{Objetivos Específicos}
+\begin{itemize}
+  \item{Poder Legendario: ¿Son realmente más fuertes los Pokémon legendarios en comparación con los comunes?}
+  \item{Análisis por Tipo: Determinar qué tipo posee las mejores estadísticas en promedio.}
+  \item{Pseudo-legendarios: Evaluar si si son realmente competitivos.}
+  \item{Grupos de Huevo (Egg Groups): Analizar si influye el Egg group en nivel de combate.}
+  \item{Evolución Generacional: Observar la Evolucion del poder por generación a lo largo de las generaciones.}
+\end{itemize}
+```{r muestro, include=FALSE}
 X29_Pokemon <- read_csv("29. Pokemon.csv")
 ```
 
-```{r}
+```{r nombrovariable, include=FALSE}
 Legendarios <- subset(X29_Pokemon, Is_Legendary == TRUE)
 
 ```
-```{r}
+```{r nombrovariable2, include=FALSE}
 no_legendarios <- subset(X29_Pokemon, Is_Legendary == FALSE)
 ```
 
+# Comparacion estadistica de los legendarios y los no los no lejendarios.
 ```{r}
-print(Legendarios)
+Legendarios %>%
+  head(10) %>%
+  # SELECCIÓN: Solo elegimos las columnas clave para que quepan en la hoja
+  select(Name, Type_1, Total_Stats, HP, Attack, Defense) %>%
+kbl(caption = "Primeras 10 observaciones de Los Legendarios", 
+      booktabs = TRUE, 
+      align = "c") %>%
+  kable_styling(latex_options = c("striped", "hold_position", "scale_down"),
+                full_width = F) %>%
+  row_spec(0, bold = TRUE, color = "white", background = "#D7261E")
 ```
 ```{r}
-print(no_legendarios)
+no_legendarios %>%
+  head(10) %>%
+  # SELECCIÓN: Solo elegimos las columnas clave para que quepan en la hoja
+  select(Name, Type_1, Total_Stats, HP, Attack, Defense) %>%
+kbl(caption = "Primeras 10 observaciones de Los Legendarios", 
+      booktabs = TRUE, 
+      align = "c") %>%
+  kable_styling(latex_options = c("striped", "hold_position", "scale_down"),
+                full_width = F) %>%
+  row_spec(0, bold = TRUE, color = "white", background = "#0073C2")
 ```
 
-# ahora comparo los legendarios y los no los no lejendarios.
-```{r}
-mean(Legendarios$Total_Stats)
+```{r, echo=FALSE}
+# Calculamos los promedios
+promedio_legendarios <- mean(Legendarios$Total_Stats)
+promedio_no_legendarios <- mean(no_legendarios$Total_Stats)
+
+# Creamos un pequeño dataframe con los resultados
+tabla_resumen <- data.frame(
+  Categoria = c("Legendarios", "No Legendarios"),
+  Promedio_Total = c(promedio_legendarios, promedio_no_legendarios)
+)
+
+# Mostramos la tabla bonita
+knitr::kable(
+  tabla_resumen,
+  col.names = c("Categoría", "Promedio de Estadísticas Totales"),
+  digits = 2, # Redondea a dos decimales
+  caption = "Comparación de promedios de estadísticas"
+)
 ```
-```{r}
-mean(no_legendarios$Total_Stats)
-```
+
 # ahora visualizacion
 ```{r}
 install.packages("ggplot2")
