@@ -10,17 +10,16 @@ que confirme estas afirmaciones, con los datos de la BD(Base de Datos) de Pokemo
 
 La investigación confronta las creencias de la comunidad pokémon con los resultados estadísticos, separando los mitos de la realidad. Debido a esto, se plantea las siguientes preguntas de investigación:
 
-### 1)¿Los pokémon legendarios son superiores estadisticamente?
+### 1) ¿Los pokémon legendarios son superiores estadisticamente?
 
-### 2)¿Los pokémon con mayor ataque son más lentos y los más rapidos tienen un ataque más bajo?
+### 2) ¿Los pokémon con mayor ataque son más lentos y los más rapidos tienen un ataque más bajo?
 
-### 3)¿Los pokémon con doble tipo son más debiles que los tipo puro porque tienen más debilidades?
+### 3) ¿Los pokémon con doble tipo son más debiles que los tipo puro porque tienen más debilidades?
 
-### 4)Los pokémon tipo psíquico dominaban en la Generación 1,¿pero perdieron su reinado?
+### 4) Los pokémon tipo psíquico dominaban en la Generación 1,¿pero perdieron su reinado?
 
+### 5) ¿cada generación introduce pokémon más poderosos?\
 
-\textbf{5.}	¿cada generación introduce pokémon más poderosos?\
-Analizar estadisticamente la validez de creencias populares sobre pokémon desde la generación una hasta las 9.
 ## **objetivos**
 - Comparar a los legendarios y no legendarios con el promedio de las estadisticas más importantes.
 - Comparar el promedio general de la velocidad de pokémones con la velocidad promedio de los pokemones tipo roca.
