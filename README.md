@@ -20,6 +20,8 @@ La investigación confronta las creencias de la comunidad pokémon con los resul
 
 ### 5) ¿cada generación introduce pokémon más poderosos?\
 
+## **objetivo General**
+- Analizar estadisticamente la validez de creencias populares sobre pokémon desde la generación una hasta las 9.
 ## **objetivos**
 - Comparar a los legendarios y no legendarios con el promedio de las estadisticas más importantes.
 - Comparar el promedio general de la velocidad de pokémones con la velocidad promedio de los pokemones tipo roca.
