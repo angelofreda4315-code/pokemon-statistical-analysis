@@ -18,10 +18,10 @@ La investigación ayuda a principiantes, a elegir mejor sus pokémon con base es
 ### 3) ¿Influye más el "elemento" del Pokémon (Fuego, Agua, etc.) en su fuerza total que el hecho de ser o no un legendario? en las generaciones de la data, usando las variables "Type_1", "Is_Legendary" y "Total_Stats".
 
 ## **objetivo General**
-- Comparar el rendimiendo estadistico de los poquemones legendarios y los que no legendarios en las generaciones pokémon.
+- Comparar el rendimiendo estadistico de los Pokémones legendarios y los que no legendarios en las generaciones pokémon.
 
 ## **objetivos especificos**
-- Comparar a los legendarios y no legendarios con el promedio de las estadisticas más importantes.
+- Comparar a los legendarios y no legendarios con el promedio de las estadísticas más importantes.
 - Encontrar cuales son esos pokémones que logran ser más rapidos que los legendarios.
-- Analizar si lo que hace fuerte al pokemon normalmente es su tipo o porque es legendario.
+- Analizar si lo que hace fuerte al pokémon normalmente es su tipo o porque es legendario.
 
