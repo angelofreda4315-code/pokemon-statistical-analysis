@@ -183,7 +183,14 @@ Legendarios <- subset(X29_Pokemon, Is_Legendary == TRUE)
 no_legendarios <- subset(X29_Pokemon, Is_Legendary == FALSE)
 ```
 
-# Comparacion estadistica de los legendarios y los no los no lejendarios.
+
+
+
+\chapter{Análisis de Resultados}
+
+{\small Este capítulo presenta los resultados obtenidos al aplicar las metodologías descritas en el capítulo anterior, así como del análisis estadístico descriptivo de las variables estudiadas y las ventajas y desventajas al aplicar dichos tests.}
+
+\section{Comparacion estadistica de los legendarios y los no los no lejendarios.}
 ```{r}
 Legendarios %>%
   head(10) %>%
@@ -201,7 +208,7 @@ no_legendarios %>%
   head(10) %>%
   # SELECCIÓN: Solo elegimos las columnas clave para que quepan en la hoja
   select(Name, Type_1, Total_Stats, HP, Attack, Defense) %>%
-kbl(caption = "Primeras 10 observaciones de Los Legendarios", 
+kbl(caption = "Primeras 10 observaciones de Los No Legendarios", 
       booktabs = TRUE, 
       align = "c") %>%
   kable_styling(latex_options = c("striped", "hold_position", "scale_down"),
@@ -226,7 +233,6 @@ knitr::kable(tabla_resumen,
   caption = "Comparación de promedios de estadísticas"
 )
 ```
-
 # Estadisticas descriptivas sobre pokemones Legendarios y los que no son legendarios.
 ```{r}
 install.packages("ggplot2")
@@ -237,9 +243,9 @@ library(ggplot2)
 ```{r}
 ggplot(X29_Pokemon, aes(x = Is_Legendary, y = Total_Stats)) + geom_boxplot() + labs(tittle = "Legendarios")
 ```
-podemos observar que en vista de las medidas de posición los legendarios segun nuestras muestras siempre seran mas fuertes que los que no son legendarios.
+podemos observar que en vista de las medidas de posición los legendarios segun nuestras muestras siempre seran mas fuertes que los que no son legendarios.\
 
-## ¿Qué tan común es encontrar Pokémon normales que sean igual de rápidos o incluso más veloces que los legendarios?
+\section{¿Qué tan común es encontrar Pokémon normales que sean igual de rápidos o incluso más veloces que los legendarios?}
 ```{r mediana, echo=FALSE}
 mediana_leg <- X29_Pokemon %>% 
   filter(Is_Legendary == TRUE) %>% 
@@ -261,11 +267,10 @@ ggplot(X29_Pokemon, aes(x = Speed, fill = Is_Legendary)) +
        x = "Velocidad (Speed)", fill = "¿Es Legendario?") +
   theme_minimal()
 ```
-La velocidad de la velocidad de los Pokémon según nuestra data podemos ver que es una variable con alta variabilidad. Ser un Pokémon común no impide alcanzar buenos rangos de velocidad.
 
+La velocidad de la velocidad de los Pokémon según nuestra data podemos ver que es una variable con alta variabilidad. Ser un Pokémon común no impide alcanzar buenos rangos de velocidad.\
 
-
-## ¿Influye más el "elemento" del Pokémon (Fuego, Agua, etc.) en su fuerza total que el hecho de ser o no un legendario? en las generaciones de la data, usando las variables "Type_1", "Is_Legendary" y "Total_Stats".
+\section{¿Influye más el "elemento" del Pokémon (Fuego, Agua, etc.) en su fuerza total que el hecho de ser o no un legendario? en las generaciones de la data, usando las variables "Type_1", "Is_Legendary" y "Total_Stats".}
 
 ```{r}
 # 1. Manipulación y cálculo de estadísticos
@@ -313,24 +318,8 @@ X29_Pokemon %>%
     panel.grid.minor = element_blank()
   )
 ```
-El análisis muestra que los legendarios determinantemente son mejores en la Fuerza Total, superando la influencia del Tipo Elemental. Sin embargo, tipos como Dragon y Steel tienen una mayor variabilidad y valores atípicos (outliers) superiores, indicando la existencia de Pokémon comunes que desafían la norma de su categoría."
 
-
-\chapter{Análisis de Resultados}
-
-{\small Este capítulo presenta los resultados obtenidos al aplicar las metodologías descritas en el capítulo anterior, así como del análisis estadístico descriptivo de las variables estudiadas y las ventajas y desventajas al aplicar dichos tests.}
-
-\section{Presentación de resultados 1}
-
-Descripción\
-
-\section{Presentación de resultados 2}
-
-Descripción\
-
-\section{Presentación de resultados n}
-
-Descripción\
+El análisis muestra que los legendarios determinantemente son mejores en la Fuerza Total, superando la influencia del Tipo Elemental. Sin embargo, tipos como Dragon y Steel tienen una mayor variabilidad y valores atípicos (outliers) superiores, indicando la existencia de Pokémon comunes que desafían la norma de su categoría."\
 
 \chapter{Conclusiones y Recomendaciones}
 
