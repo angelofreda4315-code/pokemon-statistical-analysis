@@ -177,14 +177,32 @@ El presente apartado detalla la ruta metodológica seguida para analizar la perc
 
 
 La investigación se fundamenta en un enfoque cuantitativo, de nivel descriptivo-comparativo y con un diseño de campo, no experimental y transeccional.
+
 •	Cuantitativo: Utiliza la recolección de datos para probar hipótesis con base en la medición numérica y el análisis estadístico de las preferencias de los estudiantes.
+
 •	De Campo: La información se recolectó directamente de los sujetos investigados en su entorno académico natural (EECA), permitiendo obtener datos primarios sobre el conocimiento del metajuego.
+
 •	No Experimental y Transeccional: No se manipularon deliberadamente las variables de estudio, sino que se observaron los fenómenos en un momento único del tiempo para describir la percepción de poder y uso de las especies Pokémon.
 \
 
 \subsection{Item 2}
 
-Descripción\
+ Población y Muestra
+
+1. Población:
+La población está constituida por la comunidad estudiantil de la EECA, integrada por los alumnos de las carrera que poseen conocimientos o afinidad con la franquicia Pokémon.
+
+2. Muestra:
+Debido a la naturaleza específica del tema, se seleccionó una muestra no probabilística de tipo intencional o por conveniencia.
+
+•	Tamaño de la Muestra: Treinta (30) estudiantes activos de la EECA.
+
+
+•	Criterios de Inclusión:
+1.	Ser estudiante regular de la escuela.
+2.	Haber jugado al menos una generación de la saga principal o simuladores competitivos (Showdown).
+3.	Manifestar disposición para la evaluación de estadísticas base (BST) y tasas de victoria.
+\
 
 \subsubsection{Item 2.2}
 
