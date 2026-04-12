@@ -169,7 +169,9 @@ En esta sección se presentan las metodologías y/o test necesarios relacionados
 
 \section{Bases metódicas utilizadas en el trabajo de investigación}
 
-Desarrollo\
+
+El presente apartado detalla la ruta metodológica seguida para analizar la percepción y el uso estratégico de Pokémon Legendarios frente a los Normales en el entorno académico de la EECA. Se describe el diseño de la investigación, la operacionalización de las variables y los criterios de selección de la muestra para garantizar la fiabilidad de los resultados obtenidos.
+\
 
 \subsection{Item 1}
 
