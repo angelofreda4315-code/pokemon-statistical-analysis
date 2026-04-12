@@ -206,7 +206,27 @@ Debido a la naturaleza específica del tema, se seleccionó una muestra no proba
 
 \subsubsection{Item 2.2}
 
-Descripción\
+ Técnicas e Instrumentos de Recolección de Datos
+
+Para el desarrollo de la investigación se emplearon las siguientes herramientas:
+
+1.	Técnica: La Encuesta, aplicada para medir la frecuencia de uso de Pokémon Legendarios vs. Normales y la percepción de "ventaja injusta" en el combate.
+
+2.	Instrumento: Un Cuestionario estructurado de [3] preguntas, diseñado con preguntas cerradas y de selección múltiple, administrado a través de un formulario digital para garantizar la integridad de las respuestas.
+
+3.	Fuentes de Contraste: Se utilizaron los repositorios de Smogon University y Pikalytics para validar si las opiniones de los 30 estudiantes coinciden con las tendencias globales de uso y eficiencia.
+
+ Operacionalización de Variables
+
+Se analizaron tres variables principales dentro de la muestra:
+
+•	Preferencia de Selección: Inclinación del estudiante por Pokémon de alto BST 
+(Legendarios) frente a la versatilidad de los Normales.
+
+•	Percepción de Dominancia: Valoración subjetiva del impacto de los Pokémon restrictos en el equilibrio del juego.
+
+•	Nivel de Competitividad: Clasificación de los encuestados según su experiencia técnica (Casual, Intermedio, Avanzado).
+\
 
 \subsection{Item n}
 
