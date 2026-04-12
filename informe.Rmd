@@ -230,7 +230,18 @@ Se analizaron tres variables principales dentro de la muestra:
 
 \subsection{Item n}
 
-Descripción\
+Procedimiento de Análisis
+
+El tratamiento de la información se llevó a cabo mediante las siguientes fases:
+
+•	Se utilizará un análisis comparativo, posiblemente a través de pruebas T o ANOVA, para determinar si hay diferencias estadísticamente significativas en las variables mencionadas entre Pokémon legendarios y no legendarios.
+
+•	Se calcularán medidas descriptivas (medias, medianas, desviaciones estándar) para ambas categorías de Pokémon.
+
+•Se utilizarán gráficas para visualizar las diferencias en estadísticas.
+
+•	Fase Sintética: Elaboración de conclusiones sobre si la formación analítica del estudiante de la EECA influye en una selección de equipo más eficiente u optimizada (min-maxing).
+\
 
 ```{r muestro, include=FALSE}
 Pokemon <- read_csv("29. Pokemon.csv")
@@ -389,9 +400,15 @@ El análisis muestra que los legendarios determinantemente son mejores en la Fue
 
 \chapter{Conclusiones y Recomendaciones}
 
-\textbf{1.-} Conclusion 1 del trabajo de investigación.\
+\textbf{Conclusión 1.-}  
+Primacía del Estatus sobre la Naturaleza Elemental:
+Se concluye que el estatus de "Legendario" constituye una variable determinante de poder que supera significativamente la influencia del Tipo Elemental (Type 1) en todas las generaciones analizadas. Los datos revelan que no existe un solo tipo elemental donde el promedio de fuerza de los Pokémon regulares logre superar al de los legendarios; mientras que los Pokémon comunes oscilan en una media de 374 a 462 puntos, los legendarios mantienen una hegemonía que alcanza picos de 635.00 puntos (Dragón/Tierra) y 640.00 puntos (Hada). Esta disparidad técnica confirma que, aunque el tipo elemental aporta ventajas tácticas (resistencias y debilidades), la robustez estadística bruta está estrictamente reservada a la categoría de legendarios, consolidándolos como los activos de mayor valor y menor riesgo para el desempeño competitivo.\
 
-\textbf{Recomendación} Recomendación 1 del trabajo de investigación.\
+\textbf{Recomendación} 
+
+Desarrollo de una Matriz de Selección de "Unidades de Eficiencia Marginal":
+A la luz de los hallazgos que demuestran la hegemonía de los Pokémon Legendarios frente a los tipos elementales, se recomienda a los investigadores y jugadores de la comunidad de la EECA el desarrollo de una matriz de selección basada en la utilidad marginal.
+Dado que el estatus "Legendario" garantiza fuerza bruta pero genera una centralización predecible del metajuego, es imperativo identificar y categorizar aquellos Pokémon comunes que, según la Tabla 4.4, actúan como "valores atípicos" (outliers) en tipos clave como Acero y Dragón. Estos ejemplares, al poseer estadísticas cercanas a la élite pero con costos de oportunidad (o restricciones de torneo) menores, representan la inversión más eficiente para romper la hegemonía de los legendarios, permitiendo una ventaja competitiva basada en la sinergia técnica y no únicamente en el poder bruto del ejemplar.\
 
 \textbf{2.-} Conclusion 2 del trabajo de investigación.\
 
