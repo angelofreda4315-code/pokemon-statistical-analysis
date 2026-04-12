@@ -175,7 +175,12 @@ El presente apartado detalla la ruta metodológica seguida para analizar la perc
 
 \subsection{Item 1}
 
-Descripción\
+
+La investigación se fundamenta en un enfoque cuantitativo, de nivel descriptivo-comparativo y con un diseño de campo, no experimental y transeccional.
+•	Cuantitativo: Utiliza la recolección de datos para probar hipótesis con base en la medición numérica y el análisis estadístico de las preferencias de los estudiantes.
+•	De Campo: La información se recolectó directamente de los sujetos investigados en su entorno académico natural (EECA), permitiendo obtener datos primarios sobre el conocimiento del metajuego.
+•	No Experimental y Transeccional: No se manipularon deliberadamente las variables de estudio, sino que se observaron los fenómenos en un momento único del tiempo para describir la percepción de poder y uso de las especies Pokémon.
+\
 
 \subsection{Item 2}
 
