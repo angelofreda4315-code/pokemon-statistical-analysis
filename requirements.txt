@@ -1,6 +1,4 @@
 
 plotly==6.6.0
 pandas==2.0.3
-python-dateutil==2.9.0.post0
 streamlit==1.56.0
-naumpy==2.0.3
