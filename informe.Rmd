@@ -1,6 +1,6 @@
 ---
 # --- Metadatos Básicos ---
-title: "La estadistica Vs Comunidad Pokemon"
+title: "Análisis comparativo de las estadísticas base entre Pokémon legendarios y no legendarios: Un estudio de superioridad competitiva hasta la Novena Generación."
 author:
    - Angelo Freda
    - Stephannie Labrador
@@ -125,7 +125,7 @@ Este análisis estadístico se basa en un registro histórico de 30 años, abarc
 
 \section{Variables}
 
-\begin{description}
+ \begin{description}
     \item[\textbf{Base Stat Total (BST):}] Métrica agregada que representa la sumatoria de los seis atributos fundamentales de un Pokémon. Es el indicador estándar de la potencia bruta de una especie.
     
     \item[\textbf{Atributos de Combate:}] Conjunto de variables numéricas que definen el rendimiento de una entidad en batalla, incluyendo la vitalidad (\textit{HP}), la fuerza física (\textit{Attack}), la capacidad de resistencia (\textit{Defense}) y la iniciativa o rapidez de acción (\textit{Speed}).
@@ -149,19 +149,84 @@ Este análisis estadístico se basa en un registro histórico de 30 años, abarc
 
 \section{Bases Teóricas}
 
-Resumen de las bases teoricas explicadas en el capitulo y su importancia\
+\begin{itemize}
+\item{El Poder como Variable: Se establece que el rendimiento de un Pokémon no es azaroso, sino que depende del Total de Estadísticas (Total\_Stats) y la distribución estratégica de puntos en atributos como la Velocidad (Speed).}
+\item{Categorización Paramétrica: La distinción entre Pokémon Legendarios y Regulares no es solo narrativa; es la base para definir nuestros grupos de estudio ($n_1$) y ($n_0$).}
+\end{itemize}
 
-\subsection{Definición 1}
+\subsection{Origen y Expansión de la Franquicia}
+\begin{description}
+ \item{Pokémon, una contracción de las palabras inglesas "Pocket Monsters" (Monstruos de Bolsillo), es una franquicia de medios que comenzó originalmente como un par de videojuegos interconectables para la consola portátil Game Boy. Fue creada por Satoshi Tajiri y Ken Sugimori, desarrollada por la empresa Game Freak y publicada por Nintendo en Japón en febrero de 1996 (con las ediciones Roja y Verde). Desde entonces, ha evolucionado hasta convertirse en la franquicia de entretenimiento más rentable de la historia, abarcando cartas coleccionables, series de animación, películas y múltiples secuelas de videojuegos.}
 
-Descripción de la definición 1\
+ \item{En este universo como jugador se despliega un rol importante de un "Entrenador Pokémon". El objetivo principal se divide en dos grandes metas: capturar a todas las especies de criaturas disponibles para completar una enciclopedia digital llamada "Pokédex", y entrenar a un equipo de hasta seis de estas criaturas para que compitan en combates por turnos contra otros entrenadores.}
+ \end{description}
 
-\subsection{Definición 2}
+\subsection{Mecánicas básicas y categorias de los Pokémon}
 
-Descripción de la definición 2\
+El rendimiento de un Pokémon en batalla no depende únicamente de su nivel de entrenamiento, sino de una serie de características intrínsecas que lo diferencian del resto. Para el propósito de esta investigación, destacan tres conceptos fundamentales:
 
-\subsection{Definición n}
+\begin{itemize}
+    \item \textbf{Tipos Elementales (Types):} Cada especie pertenece a uno o dos "Tipos" (como Fuego, Agua, Planta, Eléctrico, etc.). Esto funciona como un sistema complejo de "Piedra, Papel o Tijera", donde un tipo tiene ventajas ofensivas y resistencias defensivas sobre otros. Un Pokémon estadísticamente débil puede derrotar a uno más fuerte si tiene la ventaja de tipo.
+ \item \textbf{Generaciones (Generations):} Los juegos principales se lanzan en bloques cronológicos conocidos como "Generaciones". Cada nueva generación introduce una nueva región geográfica para explorar y un conjunto de especies Pokémon inéditas. Hasta el momento del presente estudio, existen nueve generaciones (Gen-1 a Gen-9), acumulando más de mil criaturas registradas.
+ \item \textbf{Categorías de Especies (Regulares, Legendarios y Singulares):} La inmensa mayoría de los Pokémon son criaturas comunes o "regulares" que se encuentran en estado salvaje, pueden capturarse múltiples veces y tienen la capacidad de reproducirse. Por otro lado, los Pokémon "Legendarios" y "Singulares" (Mythical) son deidades, avatares de la naturaleza o creaciones artificiales raras dentro de la mitología del juego. Usualmente, el jugador solo puede obtener un ejemplar de cada uno por partida.
+ \end{itemize}
 
-Descripción de la definición n\
+\subsection{Estadísticas Base (Base Stats) y el Total de Estadísticas (Total\_stats)}
+
+Las estadísticas base son los valores intrínsecos y genéticos que definen el potencial de una especie Pokémon en particular. Se dividen en seis atributos fundamentales: Puntos de Salud (PS o Vida), Ataque, Defensa, Ataque Especial, Defensa Especial y Velocidad. Para fines de esta investigación, el Total de Estadísticas Base (Total_stats o BST) representa la sumatoria de estos seis atributos y es el indicador universal más aceptado de la "fuerza bruta" de un Pokémon. Un valor alto de Total_stats indica una mayor disponibilidad de puntos para resistir o infligir daño.
+
+\subsection{La Dicotomía: Pokémon Legendarios vs. Regulares (Is\_Legendary)}
+
+Dentro del diseño del juego, los Pokémon legendarios son criaturas raras, habitualmente únicas en la narrativa, que suelen estar restringidas en ciertos formatos competitivos. Mecánicamente, Game Freak (la desarrolladora) suele otorgarles un Total_stats que ronda o supera los 600 puntos. Por el contrario, la inmensa mayoría de los Pokémon regulares (no legendarios) oscilan entre los 400 y 530 puntos. Esta diferencia paramétrica es la que alimenta la percepción de superioridad absoluta que el presente estudio busca desmitificar.
+
+\subsection{La Importancia de la Distribución y la Velocidad (Speed)}
+
+El rendimiento competitivo no depende únicamente del Total_stats, sino de cómo se distribuyen esos puntos. La Velocidad es la variable binaria del combate: quien tiene el valor más alto ataca primero. Un Pokémon no legendario con un Total_stats mediocre pero con un valor de Speed excepcionalmente alto puede neutralizar a un legendario antes de que este pueda actuar. Este concepto, conocido como "min-maxing" (minimizar estadísticas inútiles para maximizar las útiles), es vital para entender las excepciones a la regla de la superioridad legendaria.
+
+\section{Bases Estadísticas y Criterios Analíticos}
+Para dar respuesta a los objetivos planteados y someter a prueba la hipótesis de la superioridad legendaria, la investigación se apoyará en las siguientes herramientas de la estadística descriptiva e inferencial.
+
+\subsection{Estadística Descriptiva: Tendencia Central y Dispersión}
+Para establecer los promedios de poder (Objetivo 1), se utilizarán la media aritmética y la desviación estándar de variables como Total_stats, Speed y Ataque. La media muestral $\bar{X}$ representa el valor esperado de la estadística para cada grupo, calculada como:
+$$\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i$$
+Donde n es el número total de Pokémon en el grupo evaluado y xi​ es el valor de la estadística para el i-ésimo Pokémon. Para medir la variabilidad o "consistencia" de las estadísticas dentro de la categoría de legendarios y no legendarios, se empleará la desviación estándar muestral (s):
+$$s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}}$$
+\subsection{Contraste de Hipótesis: Comparación de Medias}
+Para identificar brechas significativas de poder (Objetivo 1 y 3) entre los dos grupos (Legendarios vs. No Legendarios), se aplicará la Prueba t de Student para muestras independientes. Dado que es altamente probable que las varianzas poblacionales sean distintas (hay muchos más Pokémon regulares que legendarios, y sus estadísticas son más variadas), se utilizará la variante de Prueba t de Welch, cuya fórmula es:
+$$t = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}$$
+Donde $\bar{X}_1$ y $\bar{X}_2$ son las medias de Total_stats de legendarios y regulares respectivamente, $s_1^2$ y $s_2^2$ son sus varianzas, $n_1$ y $n_2$ los tamaños de muestra. Un valor p resultante menor al nivel de significancia (usualmente a =0.05) confirmará estadísticamente la diferencia absoluta.
+
+\subsection{Análisis de Proporciones}
+Para el segundo objetivo, que busca catalogar los ejemplares regulares que superan el umbral de velocidad promedio de los legendarios, se calculará la proporción muestral $\hat{p}$. Si se define el evento como "un Pokémon regular tiene una Velocidad mayor que la media de la Velocidad de los legendarios $\bar{X}_{leg}$", la proporción se define como:
+$$\hat{p} = \frac{x}{n}$$
+Donde x es el conteo de Pokémon regulares que cumplen la condición $Speed > \bar{X}_{leg}$ y $n_{reg}$ es el total de Pokémon regulares. Para visualizar a qué distancia se encuentra un Pokémon regular del promedio legendario en términos estandarizados, se puede utilizar el cálculo del Puntaje Z:
+$$Z = \frac{X_i - \mu_{leg}}{\sigma_{leg}}$$
+Un puntaje Z positivo en la Velocidad de un Pokémon no legendario frente a la distribución legendaria confirmará matemáticamente que es una "excepción a la regla".
+
+\subsection{Análisis de Correlación Biserial-Puntual}
+El tercer objetivo requiere evaluar la correlación entre el rendimiento (Total_stats o Ataque) y la condición de legendario. Dado que la variable dependiente (Total_stats) es continua y la variable independiente (Is_Legendary) es dicotómica/binaria (0 = No Legendario, 1 = Legendario), el método estadístico adecuado es el Coeficiente de Correlación Biserial-Puntual $r_{pb}$:
+$$r_{pb} = \frac{M_1 - M_0}{s_n} \sqrt{\frac{n_1 n_0}{n^2}}$$
+**Donde:**
+$$
+\begin{aligned}
+M_1 &= \text{Media de Legendarios.} \\
+M_0 &= \text{Media de No Legendarios.} \\
+s_n &= \text{Desviación estándar total.}\\
+n_0 &= \text{Cantidad de especímenes No Legendarios.}\\
+n_1 &= \text{Cantidad de especimenes Legendarios.}\\
+n &= \text{Tamaño total del dataset (n1+n0).}
+\end{aligned}
+$$
+\begin{itemize}
+    \item \textbf{Tamaño de la muestra de Legendarios ($n_1$):} 
+    Se calcula mediante la sumatoria de instancias donde el atributo es verdadero: 
+    $n_1 = \sum (\text{Is\_Legendary} = \text{TRUE})$
+    
+    \item \textbf{Tamaño de la muestra de No Legendarios ($n_0$):} 
+    Se calcula mediante la sumatoria de instancias donde el atributo es falso: 
+    $n_0 = \sum (\text{Is\_Legendary} = \text{FALSE})$
+\end{itemize}
+
 
 \chapter{Marco Metódico}
 
@@ -171,7 +236,7 @@ En esta sección se presentan las metodologías y/o test necesarios relacionados
 
 
 El presente apartado detalla la ruta metodológica seguida para analizar la percepción y el uso estratégico de Pokémon Legendarios frente a los Normales en el entorno académico de la EECA. Se describe el diseño de la investigación, la operacionalización de las variables y los criterios de selección de la muestra para garantizar la fiabilidad de los resultados obtenidos.
-\
+
 
 \subsection{Item 1}
 
