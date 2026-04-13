@@ -86,7 +86,7 @@ else:
 st.metric("% normales con velocidad >= mediana legendaria", f"{porc_rapidos:.1f}%")
 
 fig_vel = px.scatter(filtrados, x="Speed", y="Total_Stats", color="Is_Legendary",
-                     hover_data=["Name"], title="Velocidad vs Poder total")
+                     hover_data=["Name"], title="Velocidad vs Poder Total")
 st.plotly_chart(fig_vel, use_container_width=True)
 
 top10 = normales_rapidos.nlargest(10, 'Speed')[['Name', 'Type_1', 'Speed', 'Total_Stats']]
