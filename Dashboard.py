@@ -76,18 +76,39 @@ fig_tipo = px.bar(prom_tipo, x="Total_Stats", y="Type_1", orientation='h',
 fig_tipo.update_layout(yaxis={'categoryorder':'total ascending'})
 st.plotly_chart(fig_tipo, use_container_width=True)
 
+#-----------------------------segundo punto-----------------------------
+
 st.subheader("🏃 ¿Los normales pueden ser rápidos?")
+
 mediana_leyenda = filtrados[filtrados['Is_Legendary']]['Speed'].median()
 normales_rapidos = filtrados[~filtrados['Is_Legendary'] & (filtrados['Speed'] >= mediana_leyenda)]
 if len(filtrados[~filtrados['Is_Legendary']]) > 0:
     porc_rapidos = len(normales_rapidos) / len(filtrados[~filtrados['Is_Legendary']]) * 100
 else:
     porc_rapidos = 0
-st.metric("% normales con velocidad >= mediana legendaria", f"{porc_rapidos:.1f}%")
+st.metric("porcentaje de normales con velocidad mayor o igual a la mediana legendaria", f"{porc_rapidos:.1f}%")
 
 fig_vel = px.scatter(filtrados, x="Speed", y="Total_Stats", color="Is_Legendary",
                      hover_data=["Name"], title="Velocidad vs Poder Total")
 st.plotly_chart(fig_vel, use_container_width=True)
 
+st.subheader("📊 Top 10 normales más rápidos")
 top10 = normales_rapidos.nlargest(10, 'Speed')[['Name', 'Type_1', 'Speed', 'Total_Stats']]
 st.dataframe(top10, use_container_width=True)
+
+#------------------------mato el último punto------------------------
+st.subheader("🌿 ¿El tipo elemental importa más que ser legendario?")
+
+# Calcular fuerza media por tipo y condición legendaria
+type_stats = datos.groupby(['Type_1', 'Is_Legendary'])['Total_Stats'].agg(['mean', 'count', 'std']).reset_index() #agrupa por tipo y condición legendaria, calcula la media, cuenta y desviación estándar de Total_Stats
+type_stats.columns = ['Tipo', 'Legendario', 'Fuerza_Media', 'Cantidad', 'Desv_Est'] #renombra las columnas para mayor claridad
+type_stats['Legendario'] = type_stats['Legendario'].map({True: 'Sí', False: 'No'}) #convierte la columna Legendario a texto para mejor visualización en el gráfico
+
+# Gráfico de barras agrupadas
+fig_bar = px.bar(type_stats, x="Tipo", y="Fuerza_Media", color="Legendario", #crea un gráfico de barras donde el eje x es el tipo, el eje y es la fuerza media, y las barras están coloreadas por condición legendaria
+                 barmode="group", title="Fuerza media por tipo y condición legendaria") #configura el modo de las barras para que estén agrupadas y establece el título del gráfico
+st.plotly_chart(fig_bar, use_container_width=True) # muestra el gráfico en la aplicación de Streamlit, ajustando su ancho al contenedor disponible
+
+st.subheader("📊 Tabla de fuerza media por tipo y condición legendaria") #subtítulo para la sección de la tabl  a
+# Mostrar tabla estilo PDF
+st.dataframe(type_stats.sort_values("Fuerza_Media", ascending=False),) #muestra la tabla con la fuerza media por tipo y condición legendaria, ordenada de mayor a menor fuerza media
