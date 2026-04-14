@@ -4,7 +4,15 @@ import plotly.express as px
 
 # ----- Configuración rápida -----
 st.set_page_config(page_title="Estadísticas Pokémon", page_icon="🔥", layout="wide") #configura el título y el diseño de la página
-st.sidebar.image("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png", width=100)
+
+#coloco dos imagenes
+with st.sidebar:
+    col1, col2 = st.columns(2)
+    with col1:
+        st.image("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png", width=100)
+    with col2:
+        st.image("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/257.png", width=100)
+
 st.sidebar.title("🎮 pokemenu")
 
 # ----- Cargar datos (solo una vez) -----
@@ -25,8 +33,15 @@ tipo_primario = st.sidebar.multiselect("Tipo primario", tipos, default=tipos)
 
 leyenda_filtro = st.sidebar.radio("Mostrar", ["Todos", "Solo Legendarios", "Solo No Legendarios"])
 
+# ----- Filtro de rango de Total_Stats (slider continuo) -----
+min_stats = int(datos['Total_Stats'].min())
+max_stats = int(datos['Total_Stats'].max())
+rango_total = st.sidebar.slider(
+    "Rango de Total_Stats",
+    min_value=min_stats,
+    max_value=max_stats, value=(min_stats, max_stats), step=10, format="%d pts")
 # ----- Aplicar filtros -----
-mascara = (datos['Generation'].isin(tipo_elegido)) & (datos['Type_1'].isin(tipo_primario))
+mascara = (datos['Generation'].isin(tipo_elegido)) & (datos['Type_1'].isin(tipo_primario)) & (datos['Total_Stats'].between(rango_total[0], rango_total[1]))
 if leyenda_filtro == "Solo Legendarios":
     mascara &= datos['Is_Legendary'] == True
 elif leyenda_filtro == "Solo No Legendarios":
@@ -36,8 +51,7 @@ filtrados = datos[mascara]
 
 
 # ----- jamon de el dash -----
-st.title("📈 ¿Los Pokémon legendarios son realmente superiores?")
-
+st.title("📈 ¿Los Pokémon legendarios son realmente superiores?") 
 
 #----------------Pestañas----------------
 tab1, tab2, tab3 = st.tabs(["📊Comparación general", "🏃Análisis de velocidad", "💪Fuerza normal y legendaria"])
@@ -54,6 +68,8 @@ with tab1:
         porcentaje = (diferencia / prom_normal * 100) if prom_normal != 0 else 0
     else:
         prom_leyenda = prom_normal = diferencia = porcentaje = 0
+        
+        
     col1, col2, col3 = st.columns(3)
     col1.metric("Promedio Legendarios", f"{prom_leyenda:.1f}" if len(filtrados)>0 else "Sin datos")
     col2.metric("Promedio Normales", f"{prom_normal:.1f}" if len(filtrados)>0 else "Sin datos")
@@ -63,9 +79,9 @@ with tab1:
 # --- Indicador verde/rojo debajo de la diferencia ---
     if len(filtrados) > 0 and diferencia != 0:
         if diferencia > 0:
-            delta_texto = f"🟢 +{porcentaje:.1f}% (Legendarios superiores)"
+           delta_texto = f"🟢 +{porcentaje:.1f}% (Legendarios superiores)"
         else:
-            delta_texto = f"🔴 {porcentaje:.1f}% (Normales superiores)"
+           delta_texto = f"🔴 {porcentaje:.1f}% (Normales superiores)"
         col3.metric("Diferencia", f"{diferencia:.1f} ({porcentaje:+.1f}%)", delta=delta_texto)
     else:
         col3.metric("Diferencia", "Sin datos")
@@ -81,14 +97,14 @@ with tab1:
         with col_izq:
             legendarios_df = filtrados[filtrados['Is_Legendary']==True]
             if len(legendarios_df) > 0:
-                fig_leg=px.box(legendarios_df,y="Total_Stats",title="Legendarios",points="all",color_discrete_sequence=["darkblue"])
+                fig_leg=px.box(legendarios_df,y="Total_Stats",title="Legendarios",points="all",color_discrete_sequence=["darkblue"], hover_data=["Name"])
                 st.plotly_chart(fig_leg, use_container_width=True)
             else:
                 st.info("No hay legendarios con estos filtros.")    
         with col_der:
              normales_df = filtrados[filtrados['Is_Legendary']==False]
              if len(normales_df) > 0:
-                fig_norm=px.box(normales_df,y="Total_Stats",title="Normales",points="all",color_discrete_sequence=["lightgray"])
+                fig_norm=px.box(normales_df,y="Total_Stats",title="Normales",points="all",color_discrete_sequence=["lightgray"], hover_data=["Name"])
                 st.plotly_chart(fig_norm, use_container_width=True)
              else:
                 st.info("No hay normales con estos filtros.")
@@ -104,6 +120,8 @@ with tab1:
                          color="Total_Stats", color_continuous_scale="Viridis")
         fig_tipo.update_layout(yaxis={'categoryorder':'total ascending'})
         st.plotly_chart(fig_tipo, use_container_width=True)
+        
+        st.markdown("📌 Conclusión: El tipo elemental tiene un impacto significativo en la fuerza total de los Pokémon. Los tipos Dragón, Psíquico y Acero destacan por tener promedios de fuerza total más altos, lo que sugiere que estos tipos tienden a incluir Pokémon más poderosos. Por otro lado, tipos como Normal y Hada muestran promedios más bajos, indicando que suelen ser menos fuertes.")
 
 #--------------------------------------------------------------------------
 #-----------------------------segunda pestaña-----------------------------
@@ -144,15 +162,16 @@ with tab3:
 
     # Gráfico de barras agrupadas
     fig_bar = px.bar(type_stats, x="Tipo", y="Fuerza_Media", color="Legendario", #crea un gráfico de barras donde el eje x es el tipo, el eje y es la fuerza media, y las barras están coloreadas por condición legendaria
-                 barmode="group", title="Comparativa de Fuerza total", subtitle="Legendarios vs No Legendarios") #configura el modo de las barras para que estén agrupadas y establece el título del gráfico
+              barmode="group", title="Comparativa de Fuerza total", subtitle="Legendarios vs No Legendarios") #configura el modo de las barras para que estén agrupadas y establece el título del gráfico
     st.plotly_chart(fig_bar, use_container_width=True) # muestra el gráfico en la aplicación de Streamlit, ajustando su ancho al contenedor disponible
     
     st.markdown("📌 Conclusión: En casi todos los tipos elementales, los Pokémon legendarios tienen una fuerza media significativamente mayor que los no legendarios. Esto sugiere que ser legendario es un factor más determinante para la fuerza total que el tipo elemental en sí. Sin embargo, algunos tipos como Dragón y Acero destacan por tener valores altos incluso entre los no legendarios, aunque aún así no alcanzan a sus contrapartes legendarias.")
     
-    st.subheader("📊 datos") #subtítulo para la sección de la tabl  a
+    st.subheader("📊 datos") #subtítulo para la sección de la tabla
     # Mostrar tabla estilo PDF
-    st.dataframe(type_stats.sort_values("Fuerza_Media", ascending=False),) #muestra la tabla con la fuerza media por tipo y condición legendaria, ordenada de mayor a menor fuerza media
-    st.markdown("📌 Conclusión clave:Los Pokémon legendarios siempre superan en fuerza media a los no legendarios, dentro de cada tipo elemental.El tipo Dragón (635 pts), Acero (613 pts) y Psíquico (562 pts) son los más poderosos entre los legendarios. Aunque algunos no legendarios alcanzan valores altos (como Dragón con 450 pts), ningún tipo común logra igualar a su contraparte legendaria, entonces Ser legendario es más determinante que el tipo elemental para tener una fuerza total alta.")
+    st.dataframe(type_stats.sort_values("Fuerza_Media", ascending=False)) #muestra la tabla con la fuerza media por tipo y condición legendaria, ordenada de mayor a menor fuerza media
+    
+    st.markdown("📌 Conclusión:Los Pokémon legendarios siempre superan en fuerza media a los no legendarios, dentro de cada tipo elemental.El tipo Dragón (635 pts), Acero (613 pts) y Psíquico (562 pts) son los más poderosos entre los legendarios. Aunque algunos no legendarios alcanzan valores altos (como Dragón con 450 pts), ningún tipo común logra igualar a su contraparte legendaria, entonces Ser legendario es más determinante que el tipo elemental para tener una fuerza total alta.")
     
     
     
