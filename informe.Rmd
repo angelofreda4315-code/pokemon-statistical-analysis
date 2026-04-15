@@ -259,7 +259,7 @@ La población está constituida por la comunidad estudiantil de la EECA, integra
 2. Muestra:
 Debido a la naturaleza específica del tema, se seleccionó una muestra no probabilística de tipo intencional o por conveniencia.
 
-•	Tamaño de la Muestra: Treinta (30) estudiantes activos de la EECA.
+•	Tamaño de la Muestra: La muestra utilizada para realizar el análisis comparativo de las estadísticas base entre Pokemón legendarios y no legendarios es de 1025 registros correspondientes a los pokemones.
 
 
 •	Criterios de Inclusión:
@@ -277,7 +277,7 @@ Para el desarrollo de la investigación se emplearon las siguientes herramientas
 
 2.	Instrumento: Un Cuestionario estructurado de [3] preguntas, diseñado con preguntas cerradas y de selección múltiple, administrado a través de un formulario digital para garantizar la integridad de las respuestas.
 
-3.	Fuentes de Contraste: Se utilizaron los repositorios de Smogon University y Pikalytics para validar si las opiniones de los 30 estudiantes coinciden con las tendencias globales de uso y eficiencia.
+3.	Fuentes de Contraste: Se utilizaron los repositorios de Smogon University y Pikalytics para validar si las opiniones de los estudiantes coinciden con las tendencias globales de uso y eficiencia.
 
  Operacionalización de Variables
 
@@ -296,7 +296,6 @@ Se analizaron tres variables principales dentro de la muestra:
 
 El tratamiento de la información se llevó a cabo mediante las siguientes fases:
 
-•	Se utilizará un análisis comparativo, posiblemente a través de pruebas T o ANOVA, para determinar si hay diferencias estadísticamente significativas en las variables mencionadas entre Pokémon legendarios y no legendarios.
 
 •	Se calcularán medidas descriptivas (medias, medianas, desviaciones estándar) para ambas categorías de Pokémon.
 
