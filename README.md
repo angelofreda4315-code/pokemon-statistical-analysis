@@ -39,6 +39,8 @@ Determinar mediante un análisis estadístico comparativo si la supuesta superio
 
 Dashboard con streamlit: https://pokemon-statistical-analysis-w9po8cklcjxuxfnbempznv.streamlit.app/
 
+![Static Badge](https://img.shields.io/badge/R-blue) ![Static Badge](https://img.shields.io/badge/Python-yellow)
+
 
  
   
