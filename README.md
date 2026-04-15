@@ -37,6 +37,7 @@ Determinar mediante un análisis estadístico comparativo si la supuesta superio
 
 **3.** Evaluar la correlación entre la potencia de un Pokémon y sus variables determinantes (tipo elemental vs. condición de legendario) para establecer cuál factor tiene mayor incidencia en su desempeño letal.
 
+Dashboard con streamlit: https://pokemon-statistical-analysis-w9po8cklcjxuxfnbempznv.streamlit.app/
 
 
  
