@@ -33,7 +33,11 @@ output:
 
 # --- Resumen (Abstract) ---
 abstract: |
-  Resumen del trabajo de investigación...
+ La presente investigación analiza la brecha de rendimiento estadístico entre los Pokémon denominados "Legendarios" y los Pokémon "Regulares" (no legendarios), basándose en los datos oficiales hasta la Novena Generación. El estudio surge ante la percepción generalizada en la comunidad de jugadores sobre una superioridad absoluta de las criaturas legendarias, lo que genera una tendencia hacia la homogeneidad en equipos competitivos y la marginación de especies comunes.
+
+ A través de un enfoque cuantitativo y descriptivo, se analizan variables clave como el Total de Estadísticas Base (Total_Stats), la Velocidad (Speed) y el tipo elemental (Type_1). Metodológicamente, se emplean herramientas de la estadística inferencial, incluyendo el contraste de hipótesis mediante la Prueba t de Welch para comparar medias de grupos desbalanceados, el cálculo de proporciones muestrales $\hat{p}$ para identificar excepciones competitivas en Pokémon regulares, y el Coeficiente de Correlación Biserial-Puntual $r_{pb}$ para determinar el grado de asociación entre la condición de "legendario" y el poder real de la criatura.
+
+ Los objetivos se centran en contrastar promedios de poder, catalogar ejemplares comunes que superan los umbrales de velocidad legendarios y evaluar si factores como el tipo elemental tienen una incidencia mayor o igual que el estatus de legendario. Se espera que los resultados proporcionen una base sólida de toma de decisiones para jugadores principiantes, permitiéndoles optimizar sus equipos no por la rareza de las criaturas, sino por su eficiencia estadística real.
 ---
 
 ```{r setup, include=FALSE}
@@ -63,19 +67,33 @@ Sin embargo, esta tendencia plantea un riesgo importante para la salud del juego
 
 El presente estudio se propone comparar el rendimiento estadístico de Pokémon legendarios y no legendarios utilizando exclusivamente la base de datos oficial de la EECA hasta la Novena Generación. A través de un análisis cuantitativo de las variables ´Total_stats´, Speed, ´Type_1´ e ´Is_Legendary´, se busca determinar si la exclusividad de estas criaturas se traduce en una superioridad absoluta o si el tipo elemental y la especialización permiten que los Pokémon regulares sigan siendo competitivos.
 
+\chapter*{Estructura del Informe}
+\begin{itemize}
+ \item{En el \textbf{Capítulo I} se presenta el origen de la investigación, enfocándose en la creencia común de que los Pokémon legendarios son siempre superiores. Aquí se definen los objetivos del estudio y se delimita el análisis a las nueve generaciones de datos disponibles hasta la actualidad.}
+ \item{El \textbf{Capítulo II} establece el Marco Metodológico y los fundamentos del estudio. Se explican tanto los conceptos del juego como las herramientas estadísticas utilizadas (como el Z-score y la correlación biserial-puntual), que son las que permiten medir con precisión la brecha de poder entre las distintas categorías de Pokémon.}
+ \item{El \textbf{Capítulo III} describe el Marco Metodológico, detallando el proceso técnico de la investigación. Se explica cómo se prepararon los datos en R y por qué se seleccionaron pruebas específicas, como la Prueba t de Welch, para asegurar que la comparación entre grupos de diferentes tamaños sea justa y válida.}
+ 
+ \item{El \textbf{Capítulo IV} presenta el Análisis de Resultados donde se exhiben las tablas y gráficos generados. Se analizan los hallazgos sobre la velocidad y el poder total, identificando a los Pokémon comunes que logran romper la regla de superioridad y competir directamente con los legendarios.}
+ 
+ \item{Para concluir en el \textbf{Capítulo V} se presentan las Conclusiones y Recomendaciones. En este apartado se  sintetizan los descubrimientos más importantes y se propone una estrategia de selección de equipos basada en la eficiencia de las estadísticas, ayudando a los jugadores a tomar decisiones informadas.}
+\end{itemize}
+
 \chapter{Planteamiento del Problema}
 
 En abril de 2013, el usuario **Darias (2013)** planteaba una interrogante fundamental sobre si los Pokémon legendarios eran naturalmente superiores a los normales, motivado por su reciente inicio en el juego. En la actualidad, se observa que los jugadores de Pokémon se inclinan abrumadoramente por utilizar Pokémon "Legendarios" en sus alineaciones, dejando de lado a la mayoría de los Pokémon regulares. Existe la certeza generalizada de que los Pokémon legendarios poseen un Total de Estadísticas Base significativamente superior y una distribución de puntos más letal frente a los Pokémon comunes; por lo tanto, como los jugadores buscan maximizar su rendimiento, eligen invariablemente estas criaturas por su aparente ventaja numérica. Según esta tendencia de superioridad estadística, el juego competitivo se volverá cada vez más repetitivo y predecible, siendo posible que los Pokémon no legendarios queden completamente obsoletos, afectando negativamente la experiencia de los usuarios que buscan creatividad y variedad estratégica. Para demostrar este pronóstico, es necesario verificar estadísticamente si esta superioridad de los legendarios es absoluta en las variables (Ataque, Defensa, Velocidad, vida máxima y actual, generación,total_stats) o si es solo un mito en ciertas áreas, para así brindar información verificada. El volumen de datos a estudiar se limitará exclusivamente a la base de datos de los Pokémon proporcionada por la EECA hasta la Novena Generación, analizando únicamente las variables mencionadas. Con el fin de orientar a los nuevos usuarios en la toma de decisiones estratégicas basadas en datos y no solo en la popularidad de las criaturas, el presente estudio se guía por las siguientes preguntas de investigación:
 
+\vspace{0.4cm}
 \textbf{1.} ¿Existen diferencias estadísticamente significativas en el Total de Estadísticas Base (Total_stats) entre los Pokémon legendarios y regulares a lo largo de las nueve generaciones?
 
+\vspace{0.4cm}
 \textbf{2.} ¿Cuál es la proporción de Pokémon regulares cuya estadística de Velocidad (Speed) iguala o supera la media (o mediana) de los Pokémon legendarios?
 
+\vspace{0.4cm}
 \textbf{3.} ¿Ha aumentado la brecha del Total de Estadísticas Base ´(Total_stats)´ entre Pokémon legendarios y regulares a medida que avanzan las generaciones ´(Generation)´?\
 
 \section{Justificación}
 
-La presente investigación surge de la necesidad de evaluar críticamente el estado actual del balance competitivo entre los pokemones normales y los pokemones legendarios en el universo Pokémon según nuestra data ("29. Pokemon.csv"). Ante la percepción de que el juego se encamina hacia una homogeneidad donde solo las criaturas "Legendarias" tienen cabida, este estudio se justifica por la siguiente razón: Utilidad Práctica para el Jugador Principiante: A menudo, los nuevos jugadores se ven limitados por la creencia de que la única vía hacia el éxito es la obtención de Pokémon legendarios. Esta investigación busca democratizar el acceso a la estrategia basada en datos, proporcionando una base sólida para que el principiante pueda elegir a sus compañeros de equipo no por su estatus de "mito", sino por su eficiencia estadística real. Identificar Pokémon comunes con estadísticas de Velocidad o Ataque superiores permite que el usuario optimice sus recursos desde las primeras etapas del juego.
+La presente investigación surge de la necesidad de evaluar críticamente el estado actual del balance competitivo entre los Pokémon normales y los Pokémon legendarios en el universo Pokémon según nuestra data ("29. Pokemon.csv"). Ante la percepción de que el juego se encamina hacia una homogeneidad donde solo las criaturas "Legendarias" tienen cabida, este estudio se justifica por la siguiente razón: Utilidad Práctica para el Jugador Principiante: A menudo, los nuevos jugadores se ven limitados por la creencia de que la única vía hacia el éxito es la obtención de Pokémon legendarios. Esta investigación busca democratizar el acceso a la estrategia basada en datos, proporcionando una base sólida para que el principiante pueda elegir a sus compañeros de equipo no por su estatus de "mito", sino por su eficiencia estadística real. Identificar Pokémon comunes con estadísticas de Velocidad o Ataque superiores permite que el usuario optimice sus recursos desde las primeras etapas del juego.
 
 \section{Objetivos}
 
@@ -103,20 +121,20 @@ La investigación comprende un análisis exhaustivo de la base de datos de la EE
 La cobertura vertical del presente trabajo de investigación comprende un total de \textbf{1,017} observaciones (registros). Cada fila de la base de datos representa una especie o forma de Pokémon única introducida oficialmente en la franquicia. El alcance temporal de los datos es de naturaleza longitudinal, extendiéndose desde el año \textbf{1996 (Primera Generación)} hasta el año \textbf{2026 (Novena Generación)}, lo que viabiliza un análisis transgeneracional y la evaluación de tendencias a largo plazo en el balance estadístico.
 
 \begin{table}[h]
+\caption{Matriz de operacionalización de variables.}
 \centering
-\renewcommand{\arraystretch}{1.5} % Ajusta el espacio entre filas
-\begin{tabular}{|l|l|l|p{7cm}|}
+\renewcommand{\arraystretch}{1} % Ajusta el espacio entre filas
+\begin{tabular}{|l|l|l|p{4,5cm}|}
 \hline
 \rowcolor[HTML]{EFEFEF} 
 \textbf{Variable} & \textbf{Naturaleza} & \textbf{Tipo de Dato} & \textbf{Descripción / Función} \\ \hline
-\texttt{Total\_Stats} & Cuantitativa & Discreta & Sumatoria del Total de Estadísticas Base (BST). Es la variable dependiente principal. \\ \hline
-\texttt{Speed} & Cuantitativa & Discreta & Mide la iniciativa en combate; utilizada para detectar valores atípicos en Pokémon regulares. \\ \hline
-\texttt{Is\_Legendary} & Cualitativa & Binaria / Lógica & Clasifica al sujeto como Legendario o Regular. Funciona como variable independiente. \\ \hline
-\texttt{Generation} & Cualitativa & Ordinal & Indica la etapa temporal del espécimen (Gen 1 a Gen 9). \\ \hline
-\texttt{Type\_1} & Cualitativa & Nominal & Define el elemento primario del Pokémon; utilizada para análisis de agrupamiento. \\ \hline
+\texttt{Total\_Stats} & Cuantitativa & Discreta & Sumatoria del Total de Estadísticas Base (BST). \\ \hline
+\texttt{Speed} & Cuantitativa & Discreta & Mide la iniciativa en combate \\ \hline
+\texttt{Is\_Legendary} & Cualitativa & Binaria / Lógica & Clasifica al sujeto como Legendario o Regular. \\ \hline
+\texttt{Generation} & Cualitativa & Ordinal & Indica la etapa temporal del espécimen. \\ \hline
+\texttt{Type\_1} & Cualitativa & Nominal & Define el elemento primario del Pokémon \\ \hline
 \texttt{Attack / Defense} & Cuantitativa & Discreta & Atributos de fuerza y resistencia física para comparativas específicas. \\ \hline
 \end{tabular}
-\caption{Matriz de operacionalización de variables.}
 \end{table}
 
 \section{Periodo de Referencia}
@@ -191,7 +209,7 @@ Para establecer los promedios de poder (Objetivo 1), se utilizarán la media ari
 $$\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i$$
 Donde n es el número total de Pokémon en el grupo evaluado y xi​ es el valor de la estadística para el i-ésimo Pokémon. Para medir la variabilidad o "consistencia" de las estadísticas dentro de la categoría de legendarios y no legendarios, se empleará la desviación estándar muestral (s):
 $$s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}}$$
-\subsection{Contraste de Hipótesis: Comparación de Medias}
+\subsection{Comparación de Medias}
 Para identificar brechas significativas de poder (Objetivo 1 y 3) entre los dos grupos (Legendarios vs. No Legendarios), se aplicará la Prueba t de Student para muestras independientes. Dado que es altamente probable que las varianzas poblacionales sean distintas (hay muchos más Pokémon regulares que legendarios, y sus estadísticas son más variadas), se utilizará la variante de Prueba t de Welch, cuya fórmula es:
 $$t = \frac{\bar{X}_1 - \bar{X}_2}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}$$
 Donde $\bar{X}_1$ y $\bar{X}_2$ son las medias de Total_stats de legendarios y regulares respectivamente, $s_1^2$ y $s_2^2$ son sus varianzas, $n_1$ y $n_2$ los tamaños de muestra. Un valor p resultante menor al nivel de significancia (usualmente a =0.05) confirmará estadísticamente la diferencia absoluta.
@@ -325,7 +343,7 @@ no_legendarios <- subset(Pokemon,Is_Legendary == FALSE)
 
 {\small Este capítulo presenta los resultados obtenidos al aplicar las metodologías descritas en el capítulo anterior, así como del análisis estadístico descriptivo de las variables estudiadas y las ventajas y desventajas al aplicar dichos tests.}
 
-\section{Comparacion estadistica de los legendarios y los no los no lejendarios.}
+\subsection{Comparación Estadística de los Pokémon legendarios y los No Legendarios.}
 
 ```{r}
 Legendarios %>%
@@ -367,11 +385,11 @@ tabla_resumen <- data.frame(Categoria = c("Legendarios", "No Legendarios"),
 knitr::kable(tabla_resumen,
   col.names = c("Categoría", "Promedio de Estadísticas Totales"),
   digits = 2, # Redondea a dos decimales
-  caption = "Comparación de promedios de estadísticas"
+  caption = "Comparación de Promedios de Estadísticas"
 )
 ```
 
-# Estadisticas descriptivas sobre pokemones Legendarios y los que no son legendarios.
+# Estadísticas descriptivas sobre Pokémon Legendarios y los que No son Legendarios.
 
 ```{r}
 library(ggplot2)
@@ -381,9 +399,9 @@ library(ggplot2)
 ggplot(Pokemon, aes(x =Is_Legendary, y =Total_Stats)) + geom_boxplot() + labs(tittle = "Legendarios")
 ```
 
-podemos observar que en vista de las medidas de posición los legendarios segun nuestras muestras siempre seran mas fuertes que los que no son legendarios.\
+Al analizar las medidas de posición, se confirma que los Pokémon legendarios mantienen una superioridad constante en sus estadísticas base frente a los ejemplares regulares. Los datos muestran que, aunque existen variaciones dentro de cada grupo, el umbral de poder de los legendarios se sitúa sistemáticamente por encima del promedio general de la muestra\
 
-\section{¿Qué tan común es encontrar Pokémon normales que sean igual de rápidos o incluso más veloces que los legendarios?}
+\subsection{¿Qué tan común es encontrar Pokémon normales que sean igual de rápidos o incluso más veloces que los legendarios?}
 
 ```{r mediana, echo=FALSE}
 mediana_leg <- Pokemon %>% 
@@ -408,9 +426,9 @@ ggplot(Pokemon, aes(x = Speed, fill =Is_Legendary)) +
   theme_minimal()
 ```
 
-La velocidad de la velocidad de los Pokémon según nuestra data podemos ver que es una variable con alta variabilidad. Ser un Pokémon común no impide alcanzar buenos rangos de velocidad.\
+La velocidad de la velocidad de los Pokémon según nuestra data podemos ver que es una variable con alta variabilidad. Ser un Pokémon común no impide alcanzar buenos rangos de velocidad.
 
-\section{¿Influye más el "elemento" del Pokémon (Fuego, Agua, etc.) en su fuerza total que el hecho de ser o no un legendario? en las generaciones de la data, usando las variables `Type\_1`, "Is\_Legendary" y "Total\_Stats".}
+\subsection{¿Influye más el Elemento del Pokémon (Fuego, Agua, etc.) en su fuerza total que el hecho de ser o no un legendario? en las generaciones de la data, usando las variables: Type\_1, Is\_Legendary, Total\_Stats}
 
 ```{r}
 # 1. Manipulación y cálculo de estadísticos
@@ -465,23 +483,33 @@ El análisis muestra que los legendarios determinantemente son mejores en la Fue
 
 \chapter{Conclusiones y Recomendaciones}
 
-\textbf{Conclusión 1.-}  
-Primacía del Estatus sobre la Naturaleza Elemental:
+Este estudio ha permitido caracterizar el comportamiento de las estadísticas de poder en el universo Pokémon mediante el análisis de una base de datos que abarca 30 años de historia. A continuación, se presentan las conclusiones obtenidas a partir de la evidencia estadística y las recomendaciones para mejorar la toma de decisiones al construir equipos competitivos.
+
+\textbf{1.-}  Primacía del Estatus sobre la Naturaleza Elemental:
 Se concluye que el estatus de "Legendario" constituye una variable determinante de poder que supera significativamente la influencia del Tipo Elemental (Type 1) en todas las generaciones analizadas. Los datos revelan que no existe un solo tipo elemental donde el promedio de fuerza de los Pokémon regulares logre superar al de los legendarios; mientras que los Pokémon comunes oscilan en una media de 374 a 462 puntos, los legendarios mantienen una hegemonía que alcanza picos de 635.00 puntos (Dragón/Tierra) y 640.00 puntos (Hada). Esta disparidad técnica confirma que, aunque el tipo elemental aporta ventajas tácticas (resistencias y debilidades), la robustez estadística bruta está estrictamente reservada a la categoría de legendarios, consolidándolos como los activos de mayor valor y menor riesgo para el desempeño competitivo.\
 
+\vspace{0.4cm}
 \textbf{Recomendación} 
 
 Desarrollo de una Matriz de Selección de "Unidades de Eficiencia Marginal":
 A la luz de los hallazgos que demuestran la hegemonía de los Pokémon Legendarios frente a los tipos elementales, se recomienda a los investigadores y jugadores de la comunidad de la EECA el desarrollo de una matriz de selección basada en la utilidad marginal.
 Dado que el estatus "Legendario" garantiza fuerza bruta pero genera una centralización predecible del metajuego, es imperativo identificar y categorizar aquellos Pokémon comunes que, según la Tabla 4.4, actúan como "valores atípicos" (outliers) en tipos clave como Acero y Dragón. Estos ejemplares, al poseer estadísticas cercanas a la élite pero con costos de oportunidad (o restricciones de torneo) menores, representan la inversión más eficiente para romper la hegemonía de los legendarios, permitiendo una ventaja competitiva basada en la sinergia técnica y no únicamente en el poder bruto del ejemplar.\
 
-\textbf{2.-} Conclusion 2 del trabajo de investigación.\
+\textbf{2.-} A diferencia del poder bruto, donde los Legendarios mantienen una ventaja clara, el análisis de la variable Speed revela una realidad distinta. Se concluye que el estatus de "Legendario" no garantiza la iniciativa en combate, ya que un 17.1% de los Pokémon regulares igualan o superan el punto medio de velocidad de la categoría élite. Este resultado es fundamental porque demuestra que la superioridad estadística de los Legendarios no es total en todas las áreas; existen "nichos de especialización" donde las especies comunes son funcionalmente superiores. En términos de juego, esto significa que un Pokémon regular bien seleccionado puede anular la ventaja de un Legendario simplemente atacando primero, lo que rompe con la idea de que los equipos con mayor puntaje total son invencibles.
 
-\textbf{Recomendación} Recomendación 2 del trabajo de investigación.\
+\vspace{0.4cm}
+\textbf{Recomendación} 
 
-\textbf{n.-} Conclusion n del trabajo de investigación.\
+Basándose en la coincidencia observada en las curvas de distribución de velocidad, se recomienda a los jugadores de la comunidad de la EECA priorizar la variable Speed sobre el Total_Stats al momento de integrar Pokémon no legendarios en sus equipos.
+En lugar de buscar un equilibrio general que difícilmente alcanzará los estándares de un Legendario, el analista debe buscar especies comunes con una distribución optimizada (máxima velocidad y menor inversión en atributos secundarios). Se sugiere utilizar el Puntaje Z calculado en este estudio para identificar aquellos ejemplares comunes que se sitúan en el rango superior de velocidad, permitiendo así construir estrategias de "ataque temprano" que compensen la falta de resistencia física con efectividad táctica.
 
-\textbf{Recomendación} Recomendación n del trabajo de investigación.\
+\vspace{0.4cm}
+\textbf{3.-} Tras analizar la evolución de los datos desde la primera hasta la novena generación, se concluye que la diferencia de poder entre los Pokémon legendarios y los regulares se ha mantenido constante. A pesar de que cada nueva etapa del juego introduce criaturas con estadísticas más altas, este incremento ha sido proporcional para ambos grupos. Esto indica que el diseño del juego no busca que los Pokémon comunes alcancen a los legendarios con el tiempo, sino que preserva una jerarquía clara. Por lo tanto, el "salto de poder" observado en las versiones más recientes no altera la posición competitiva de los legendarios, quienes siguen ocupando el nivel superior de la pirámide estadística.
+
+\vspace{0.4cm}
+\textbf{Recomendación} 
+
+Debido a que el poder base no ha sufrido cambios drásticos en su distribución a lo largo de los años, se recomienda a los usuarios de la EECA no descartar ejemplares de generaciones antiguas basándose solo en su fecha de aparición. Al construir un equipo, el analista debe evaluar a los Pokémon por sus valores individuales y no por la generación a la que pertenecen. Se sugiere crear un catálogo de "especies históricas" que, a pesar de los años, mantienen estadísticas de ataque o defensa capaces de hacer frente a las amenazas actuales, permitiendo así una mayor flexibilidad y originalidad en las estrategias de combate sin sacrificar la eficiencia.
 
 \appendix
 \renewcommand{\thechapter}{\Alph{chapter}}
