@@ -238,7 +238,7 @@ En esta sección se presentan las metodologías y/o test necesarios relacionados
 El presente apartado detalla la ruta metodológica seguida para analizar la percepción y el uso estratégico de Pokémon Legendarios frente a los Normales en el entorno académico de la EECA. Se describe el diseño de la investigación, la operacionalización de las variables y los criterios de selección de la muestra para garantizar la fiabilidad de los resultados obtenidos.
 
 
-\subsection{Item 1}
+\subsection{Tipo y Diseño de la Investigación}
 
 
 La investigación se fundamenta en un enfoque cuantitativo, de nivel descriptivo-comparativo y con un diseño de campo, no experimental y transeccional.
@@ -250,9 +250,8 @@ La investigación se fundamenta en un enfoque cuantitativo, de nivel descriptivo
 •	No Experimental y Transeccional: No se manipularon deliberadamente las variables de estudio, sino que se observaron los fenómenos en un momento único del tiempo para describir la percepción de poder y uso de las especies Pokémon.
 \
 
-\subsection{Item 2}
+\subsection{Población y Muestra}
 
- Población y Muestra
 
 1. Población:
 La población está constituida por la comunidad estudiantil de la EECA, integrada por los alumnos de las carrera que poseen conocimientos o afinidad con la franquicia Pokémon.
@@ -269,9 +268,8 @@ Debido a la naturaleza específica del tema, se seleccionó una muestra no proba
 3.	Manifestar disposición para la evaluación de estadísticas base (BST) y tasas de victoria.
 \
 
-\subsubsection{Item 2.2}
+\subsubsection{Técnicas e Instrumentos de Recolección de Datos}
 
- Técnicas e Instrumentos de Recolección de Datos
 
 Para el desarrollo de la investigación se emplearon las siguientes herramientas:
 
@@ -293,9 +291,8 @@ Se analizaron tres variables principales dentro de la muestra:
 •	Nivel de Competitividad: Clasificación de los encuestados según su experiencia técnica (Casual, Intermedio, Avanzado).
 \
 
-\subsection{Item n}
+\subsection{Procedimiento de Análisis}
 
-Procedimiento de Análisis
 
 El tratamiento de la información se llevó a cabo mediante las siguientes fases:
 
