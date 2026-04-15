@@ -9,6 +9,21 @@ Sin embargo, esta tendencia plantea un riesgo importante para la salud del juego
 
 El presente estudio se propone comparar el rendimiento estadístico de Pokémon legendarios y no legendarios utilizando exclusivamente la base de datos oficial de la EECA hasta la Novena Generación. A través de un análisis cuantitativo de las variables Total_stats, Speed, Type_1 e Is_Legendary, se busca determinar si la exclusividad de estas criaturas se traduce en una superioridad absoluta o si el tipo elemental y la especialización permiten que los Pokémon regulares sigan siendo competitivos.
 
+# Estructura del Informe
+
+Este documento técnico se encuentra organizado en cinco capítulos fundamentales que articulan la investigación desde el planteamiento del problema hasta la validación estadística de los datos:
+
+**Capítulo I**, se presenta el origen de la investigación, enfocándose en la creencia común de que los Pokémon legendarios son siempre superiores. Aquí se definen los objetivos del estudio y se delimita el análisis a las nueve generaciones de datos disponibles hasta la actualidad.
+
+**Capítulo II**, se establece el Marco Metodológico y los fundamentos del estudio. Se explican tanto los conceptos del juego como las herramientas estadísticas utilizadas (como el Z-score y la correlación biserial-puntual), que son las que permiten medir con precisión la brecha de poder entre las distintas categorías de Pokémon.
+
+**Capítulo III**, se describe el Marco Metodológico, detallando el proceso técnico de la investigación. Se explica cómo se prepararon los datos en R y por qué se seleccionaron pruebas específicas, como la Prueba t de Welch, para asegurar que la comparación entre grupos de diferentes tamaños sea justa y válida.
+ 
+**Capítulo IV**, se expone el Análisis de Resultados donde se exhiben las tablas y gráficos generados. Se analizan los hallazgos sobre la velocidad y el poder total, identificando a los Pokémon comunes que logran romper la regla de superioridad y competir directamente con 
+
+**Capítulo V**, se presentan las Conclusiones y Recomendaciones. En este apartado se  sintetizan los descubrimientos más importantes y se propone una estrategia de selección de equipos basada en la eficiencia de las estadísticas, ayudando a los jugadores a tomar decisiones informadas.
+
+Este reporte no solo busca ofrecer un diagnóstico estadístico sobre el equilibrio de poder en la franquicia, sino también consolidar una metodología técnica que pueda ser replicada para evaluar el balance y la eficiencia en diversos sistemas de personajes dentro de la industria del entretenimiento digital
 
 # Planteamiento de Problema
 
