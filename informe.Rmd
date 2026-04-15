@@ -127,13 +127,13 @@ La cobertura vertical del presente trabajo de investigación comprende un total 
 \begin{tabular}{|l|l|l|p{4,5cm}|}
 \hline
 \rowcolor[HTML]{EFEFEF} 
-\textbf{Variable} & \textbf{Naturaleza} & \textbf{Tipo de Dato} & \textbf{Descripción / Función} \\ \hline
-\texttt{Total\_Stats} & Cuantitativa & Discreta & Sumatoria del Total de Estadísticas Base (BST). \\ \hline
-\texttt{Speed} & Cuantitativa & Discreta & Mide la iniciativa en combate \\ \hline
-\texttt{Is\_Legendary} & Cualitativa & Binaria / Lógica & Clasifica al sujeto como Legendario o Regular. \\ \hline
-\texttt{Generation} & Cualitativa & Ordinal & Indica la etapa temporal del espécimen. \\ \hline
-\texttt{Type\_1} & Cualitativa & Nominal & Define el elemento primario del Pokémon \\ \hline
-\texttt{Attack / Defense} & Cuantitativa & Discreta & Atributos de fuerza y resistencia física para comparativas específicas. \\ \hline
+\textbf{Variable} Y \textbf{Naturaleza} Y \textbf{Tipo de Dato} Y \textbf{Descripción / Función} \\ \hline
+\texttt{Total\_Stats} Y Cuantitativa Y Discreta Y Sumatoria del Total de Estadísticas Base (BST). \\ \hline
+\texttt{Speed} Y Cuantitativa Y Discreta Y Mide la iniciativa en combate \\ \hline
+\texttt{Is\_Legendary} Y Cualitativa Y Binaria / Lógica Y Clasifica al sujeto como Legendario o Regular. \\ \hline
+\texttt{Generation} Y Cualitativa Y Ordinal Y Indica la etapa temporal del espécimen. \\ \hline
+\texttt{Type\_1} Y Cualitativa Y Nominal Y Define el elemento primario del Pokémon \\ \hline
+\texttt{Attack / Defense} Y Cuantitativa Y Discreta Y Atributos de fuerza y resistencia física para comparativas específicas. \\ \hline
 \end{tabular}
 \end{table}
 
@@ -227,12 +227,12 @@ $$r_{pb} = \frac{M_1 - M_0}{s_n} \sqrt{\frac{n_1 n_0}{n^2}}$$
 **Donde:**
 $$
 \begin{aligned}
-M_1 &= \text{Media de Legendarios.} \\
-M_0 &= \text{Media de No Legendarios.} \\
-s_n &= \text{Desviación estándar total.}\\
-n_0 &= \text{Cantidad de especímenes No Legendarios.}\\
-n_1 &= \text{Cantidad de especimenes Legendarios.}\\
-n &= \text{Tamaño total del dataset (n1+n0).}
+M_1 Y= \text{Media de Legendarios.} \\
+M_0 Y= \text{Media de No Legendarios.} \\
+s_n Y= \text{Desviación estándar total.}\\
+n_0 Y= \text{Cantidad de especímenes No Legendarios.}\\
+n_1 Y= \text{Cantidad de especimenes Legendarios.}\\
+n Y= \text{Tamaño total del dataset (n1+n0).}
 \end{aligned}
 $$
 \begin{itemize}
@@ -256,7 +256,7 @@ En esta sección se presentan las metodologías y/o test necesarios relacionados
 El presente apartado detalla la ruta metodológica seguida para analizar la percepción y el uso estratégico de Pokémon Legendarios frente a los Normales en el entorno académico de la EECA. Se describe el diseño de la investigación, la operacionalización de las variables y los criterios de selección de la muestra para garantizar la fiabilidad de los resultados obtenidos.
 
 
-\subsection{Tipo y Diseño de la Investigación}
+\section{Tipo y Diseño de la Investigación}
 
 
 La investigación se fundamenta en un enfoque cuantitativo, de nivel descriptivo-comparativo y con un diseño de campo, no experimental y transeccional.
@@ -268,7 +268,7 @@ La investigación se fundamenta en un enfoque cuantitativo, de nivel descriptivo
 •	No Experimental y Transeccional: No se manipularon deliberadamente las variables de estudio, sino que se observaron los fenómenos en un momento único del tiempo para describir la percepción de poder y uso de las especies Pokémon.
 \
 
-\subsection{Población y Muestra}
+\section{Población y Muestra}
 
 
 1. Población:
@@ -286,7 +286,7 @@ Debido a la naturaleza específica del tema, se seleccionó una muestra no proba
 3.	Manifestar disposición para la evaluación de estadísticas base (BST) y tasas de victoria.
 \
 
-\subsubsection{Técnicas e Instrumentos de Recolección de Datos}
+\section{Técnicas e Instrumentos de Recolección de Datos}
 
 
 Para el desarrollo de la investigación se emplearon las siguientes herramientas:
@@ -337,7 +337,7 @@ no_legendarios <- subset(Pokemon,Is_Legendary == FALSE)
 
 \chapter{Análisis de Resultados}
 
-{\small Este capítulo presenta los resultados obtenidos al aplicar las metodologías descritas en el capítulo anterior, así como del análisis estadístico descriptivo de las variables estudiadas y las ventajas y desventajas al aplicar dichos tests.}
+\small Este capítulo presenta los resultados obtenidos al aplicar las metodologías descritas en el capítulo anterior, así como del análisis estadístico descriptivo de las variables estudiadas y las ventajas y desventajas al aplicar dichos tests.
 
 \subsection{Comparación Estadística de los Pokémon legendarios y los No Legendarios.}
 
@@ -385,17 +385,9 @@ knitr::kable(tabla_resumen,
 )
 ```
 
-# Estadísticas descriptivas sobre Pokémon Legendarios y los que No son Legendarios.
-
 ```{r}
 library(ggplot2)
 ```
-
-```{r}
-ggplot(Pokemon, aes(x =Is_Legendary, y =Total_Stats)) + geom_boxplot() + labs(tittle = "Legendarios")
-```
-
-Al analizar las medidas de posición, se confirma que los Pokémon legendarios mantienen una superioridad constante en sus estadísticas base frente a los ejemplares regulares. Los datos muestran que, aunque existen variaciones dentro de cada grupo, el umbral de poder de los legendarios se sitúa sistemáticamente por encima del promedio general de la muestra\
 
 \subsection{¿Qué tan común es encontrar Pokémon normales que sean igual de rápidos o incluso más veloces que los legendarios?}
 
@@ -415,14 +407,16 @@ proporcion <- Pokemon %>% # Calculamos qué proporción de los no legendarios so
 Se observa que el estatus de 'Legendario' no garantiza una superioridad absoluta en la métrica de velocidad. El 17.1% de la población no legendaria iguala o supera el rendimiento mediano de los legendarios, pero se nota tambien que la superioridad en velocidad de los Pokémon legendarios es estadísticamente significativa.
 
 ```{r}
-ggplot(Pokemon, aes(x = Speed, fill =Is_Legendary)) +
-  geom_density(alpha = 0.6) +
-  labs(title = "Distribución de Velocidad: Legendarios vs No Legendarios",
-       x = "Velocidad (Speed)", fill = "¿Es Legendario?") +
-  theme_minimal()
+ggplot(Pokemon, aes(y = Speed, fill = Is_Legendary)) + 
+      geom_bar(alpha = 0.8) + 
+      labs(title = "Conteo de velocidad: Legendarios Vs No Legendarios", 
+           y = "velocidad (Speed)",
+           x = "Cantidad de Pokémon",
+          fill = "¿Es legendario?") +
+theme_minimal()
 ```
 
-La velocidad de la velocidad de los Pokémon según nuestra data podemos ver que es una variable con alta variabilidad. Ser un Pokémon común no impide alcanzar buenos rangos de velocidad.
+La velocidad de los Pokémon según nuestra data podemos ver que es una variable con alta variabilidad. Ser un Pokémon común no impide alcanzar buenos rangos de velocidad.
 
 \subsection{¿Influye más el Elemento del Pokémon (Fuego, Agua, etc.) en su fuerza total que el hecho de ser o no un legendario? en las generaciones de la data, usando las variables: Type\_1, Is\_Legendary, Total\_Stats}
 
@@ -450,7 +444,7 @@ stats_resumen %>%
   collapse_rows(columns = 1, valign = "top") # pa que las celdas del Tipo para una vista más limpia
 ```
 
-No hay un solo tipo donde los comunes logren "ganarle" en promedio a los legendarios confirmando de nuevo el dominio de los legendarios y podemos observar que los tipos mas fuertes en su verción legendaria son los tipo dragon con 635.00 pts, Psíquico con 562.31 pts y Acero con 613.33 pts.
+No hay un solo tipo donde los comunes logren "ganarle" en promedio a los legendarios, confirmando de nuevo el dominio de los legendarios y podemos observar que los tipos mas fuertes en su verción legendaria son los tipo dragon con 635.00 pts, Psíquico con 562.31 pts y Acero con 613.33 pts.
 
 ```{r}
 Pokemon %>%
@@ -481,6 +475,7 @@ El análisis muestra que los legendarios determinantemente son mejores en la Fue
 
 Este estudio ha permitido caracterizar el comportamiento de las estadísticas de poder en el universo Pokémon mediante el análisis de una base de datos que abarca 30 años de historia. A continuación, se presentan las conclusiones obtenidas a partir de la evidencia estadística y las recomendaciones para mejorar la toma de decisiones al construir equipos competitivos.
 
+\vspace{0.4cm}
 \textbf{1.-}  Primacía del Estatus sobre la Naturaleza Elemental:
 Se concluye que el estatus de "Legendario" constituye una variable determinante de poder que supera significativamente la influencia del Tipo Elemental (Type 1) en todas las generaciones analizadas. Los datos revelan que no existe un solo tipo elemental donde el promedio de fuerza de los Pokémon regulares logre superar al de los legendarios; mientras que los Pokémon comunes oscilan en una media de 374 a 462 puntos, los legendarios mantienen una hegemonía que alcanza picos de 635.00 puntos (Dragón/Tierra) y 640.00 puntos (Hada). Esta disparidad técnica confirma que, aunque el tipo elemental aporta ventajas tácticas (resistencias y debilidades), la robustez estadística bruta está estrictamente reservada a la categoría de legendarios, consolidándolos como los activos de mayor valor y menor riesgo para el desempeño competitivo.\
 
@@ -510,8 +505,41 @@ Debido a que el poder base no ha sufrido cambios drásticos en su distribución 
 \appendix
 \renewcommand{\thechapter}{\Alph{chapter}}
 
-\chapter{Anexo A}
+\chapter{Bibliografías}
+\begin{itemize}
+\item {Kaggle. (2023). Complete Pokémon Dataset and Statistics [Conjunto de datos]. Recuperado de https://www.kaggle.com/datasets/rounakbanik/pokemon}
+\item {R Core Team. (2026). R: A language and environment for statistical computing. R Foundation for Statistical Computing. https://www.r-project.org/}
+\end{itemize}
 
-\chapter{Anexo B}
+\subsection {Teoría Estadística Aplicada}
+\begin{itemize}
+\item {Anderson, D. R., Sweeney, D. J., Y Williams, T. A. (2020). Estadística para negocios y economía (14.ª ed.). Cengage Learning.}
+\item {Field, A., Miles, J., Y Field, Z. (2012). Discovering Statistics Using R. SAGE Publications.}
+\item {Moore, D. S. (2019). The Basic Practice of Statistics (8.ª ed.). W. H. Freeman.}
+\end{itemize}
 
-\chapter{Anexo C}
+\subsection{Contexto del Videojuego}
+\begin{itemize}
+\item {Nintendo Y Game Freak. (1996-2026). Pokémon Video Game Series [Serie de videojuegos]. Nintendo.}
+\item {The Pokémon Company. (2026). Play! Pokémon Competitive Rules and Resources. Recuperado de https://www.pokemon.com/us/play-pokemon/about/rules-and-resources/}
+\end{itemize}
+
+\subsection {Fuentes de Datos Estadísticos (Big Data)}
+\begin{itemize}
+\item {Pikalytics. (2024). Pokémon VGC Stats, Usage Y Metajuego Analysis (Gen 9). Recuperado de https://pikalytics.com}
+\item {Smogon University. (2024). Smogon Stats Archive: ELO 1760+ Usage Reports. Recuperado de smogon.com}
+\item {The Pokémon Company. (2024). Pokédex Nacional: Base Stats and Official Categories. Recuperado de pokemon.com}
+\end{itemize}
+
+\subsection {Fuentes Metodológicas y Teóricas}
+\begin{itemize}
+\item {Hernández-Sampieri, R., Y Mendoza, C. (2018). Metodología de la investigación: las rutas cuantitativa, cualitativa y mixta. McGraw-Hill. (Utilizado para la definición del diseño no experimental y descriptivo de la EECA).}
+\item {Glickman, M. E. (1995). The Glicko System: Specification for the Glicko-2 Rating System. (Referencia técnica para el cálculo del GXE mencionado en el análisis).}
+\end{itemize}
+
+\subsection {Documentación de Simulaciones y Algoritmos}
+\begin{itemize}
+\item {Pokémon Showdown. (2024). Battle Simulator Documentation: Damage Calculator Y Monte Carlo Simulations. Recuperado de https://pokemonshowdown.com}
+\end{itemize}
+
+
