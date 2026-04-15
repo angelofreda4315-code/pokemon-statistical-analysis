@@ -161,8 +161,9 @@ with tab3:
     type_stats['Legendario'] = type_stats['Legendario'].map({True: 'Sí', False: 'No'}) #convierte la columna Legendario a texto para mejor visualización en el gráfico
 
     # Gráfico de barras agrupadas
+  
     fig_bar = px.bar(type_stats, x="Tipo", y="Fuerza_Media", color="Legendario", #crea un gráfico de barras donde el eje x es el tipo, el eje y es la fuerza media, y las barras están coloreadas por condición legendaria
-              barmode="group", title="Comparativa de Fuerza total", subtitle="Legendarios vs No Legendarios") #configura el modo de las barras para que estén agrupadas y establece el título del gráfico
+              barmode="group",  title="Comparativa de Fuerza total<br><sup>Legendarios vs No Legendarios</sup>") #configura el modo de las barras para que estén agrupadas y establece el título del gráfico
     st.plotly_chart(fig_bar, use_container_width=True) # muestra el gráfico en la aplicación de Streamlit, ajustando su ancho al contenedor disponible
     
     st.markdown("📌 Conclusión: En casi todos los tipos elementales, los Pokémon legendarios tienen una fuerza media significativamente mayor que los no legendarios. Esto sugiere que ser legendario es un factor más determinante para la fuerza total que el tipo elemental en sí. Sin embargo, algunos tipos como Dragón y Acero destacan por tener valores altos incluso entre los no legendarios, aunque aún así no alcanzan a sus contrapartes legendarias.")
